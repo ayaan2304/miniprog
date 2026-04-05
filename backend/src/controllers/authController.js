@@ -7,6 +7,9 @@ const createToken = (user) =>
 
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
+  if ((name || "").trim().toLowerCase() === (email || "").trim().toLowerCase()) {
+    return res.status(400).json({ message: "Name and email cannot be the same" });
+  }
 
   const exists = await User.findOne({ email });
   if (exists) return res.status(400).json({ message: "User already exists" });

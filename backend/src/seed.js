@@ -55,6 +55,75 @@ const sampleCourses = [
   },
 ];
 
+// Add 5 more courses
+sampleCourses.push(
+  {
+    title: "Data Structures & Algorithms",
+    description: "Master DSA for interviews with clear explanations and problems.",
+    outcomes: ["Arrays, Strings, Trees", "Time/Space complexity", "Problem solving"],
+    domain: "technical",
+    level: "intermediate",
+    price: 2299,
+    videos: [
+      { title: "Big-O Basics", module: "Module 1", url: "https://www.w3schools.com/html/mov_bbb.mp4", isFreePreview: true },
+      { title: "Arrays & Hashing", module: "Module 1", url: "https://www.w3schools.com/html/movie.mp4", isFreePreview: true },
+      { title: "Two Pointers", module: "Module 2", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
+    ],
+  },
+  {
+    title: "React + Redux Essentials",
+    description: "Build modern SPAs with React hooks and Redux Toolkit.",
+    outcomes: ["Hooks and context", "Redux Toolkit", "API integration"],
+    domain: "technical",
+    level: "intermediate",
+    price: 1999,
+    videos: [
+      { title: "React Hooks Intro", module: "Module 1", url: "https://www.w3schools.com/html/mov_bbb.mp4", isFreePreview: true },
+      { title: "State & Effects", module: "Module 1", url: "https://www.w3schools.com/html/movie.mp4", isFreePreview: true },
+      { title: "Redux Toolkit", module: "Module 2", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
+    ],
+  },
+  {
+    title: "Node.js & Express API",
+    description: "Learn REST API patterns, auth, and production practices.",
+    outcomes: ["Express routing", "JWT auth", "Mongo integration"],
+    domain: "technical",
+    level: "beginner",
+    price: 1799,
+    videos: [
+      { title: "Express Basics", module: "Module 1", url: "https://www.w3schools.com/html/mov_bbb.mp4", isFreePreview: true },
+      { title: "CRUD & Middlewares", module: "Module 1", url: "https://www.w3schools.com/html/movie.mp4", isFreePreview: true },
+      { title: "JWT Auth", module: "Module 2", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
+    ],
+  },
+  {
+    title: "Python for Beginners",
+    description: "Start coding with Python and build small CLI projects.",
+    outcomes: ["Syntax & Types", "Control flow", "Modules & packages"],
+    domain: "technical",
+    level: "beginner",
+    price: 1499,
+    videos: [
+      { title: "Getting Started", module: "Module 1", url: "https://www.w3schools.com/html/mov_bbb.mp4", isFreePreview: true },
+      { title: "Data Types", module: "Module 1", url: "https://www.w3schools.com/html/movie.mp4", isFreePreview: true },
+      { title: "Functions & Modules", module: "Module 2", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
+    ],
+  },
+  {
+    title: "Spoken English Practice",
+    description: "Improve fluency with daily practice and practical scenarios.",
+    outcomes: ["Pronunciation", "Vocabulary", "Interview skills"],
+    domain: "language",
+    level: "beginner",
+    price: 1299,
+    videos: [
+      { title: "Intro & Sounds", module: "Module 1", url: "https://www.w3schools.com/html/mov_bbb.mp4", isFreePreview: true },
+      { title: "Common Phrases", module: "Module 1", url: "https://www.w3schools.com/html/movie.mp4", isFreePreview: true },
+      { title: "Interview Basics", module: "Module 2", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
+    ],
+  }
+);
+
 const quizForCourse = (courseId) => ({
   courseId,
   questions: [

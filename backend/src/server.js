@@ -15,12 +15,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({ origin: process.env.CLIENT_URL }));
+app.use(cors({ origin: [process.env.CLIENT_URL, "http://localhost:5173", "http://localhost:5174"] }));
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
-app.use("/api/courses", protect, courseRoutes);
+// Public GETs for landing; POST remains protected inside route file
+app.use("/api/courses", courseRoutes);
 app.use("/api/demo", demoRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/payments", paymentRoutes);

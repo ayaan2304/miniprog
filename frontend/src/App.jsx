@@ -10,6 +10,7 @@ import VideoPlayerPage from "./pages/VideoPlayerPage.jsx";
 import DemoSessionPage from "./pages/DemoSessionPage.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
 import LeaderboardPage from "./pages/LeaderboardPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Navbar />
       <main className="container">
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
