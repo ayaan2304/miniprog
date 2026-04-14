@@ -27,7 +27,16 @@ export const apiRequest = async (path, { method = "GET", token, body } = {}) => 
     ...(body ? { body: JSON.stringify(body) } : {}),
   });
 
-  const data = await response.json();
+  let data;
+  try {
+    data = await response.json();
+  } catch (parseError) {
+    if (!response.ok) {
+      throw new Error(`Server error (${response.status}): Backend may be restarting or unavailable. Please wait and try again.`);
+    }
+    throw new Error("Invalid response from server");
+  }
+
   if (!response.ok) throw new Error(data.message || "Something went wrong");
   return data;
 };
