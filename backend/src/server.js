@@ -32,7 +32,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({ origin: [process.env.CLIENT_URL, "http://localhost:5173", "http://localhost:5174"] }));
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://miniprog-frontend.vercel.app"
+];
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 app.get("/", (_req, res) => {
