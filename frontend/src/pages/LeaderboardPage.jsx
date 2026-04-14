@@ -17,6 +17,7 @@
  */
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
+import { apiRequest } from "../services/api/client.js";
 
 const LeaderboardPage = () => {
   const { user } = useAuth();
@@ -33,13 +34,7 @@ const LeaderboardPage = () => {
       setLoading(true);
       setErrorMessage("");
 
-      const response = await fetch("http://localhost:5000/api/leaderboard");
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch leaderboard");
-      }
-
-      const data = await response.json();
+      const data = await apiRequest("/leaderboard");
       setLeaderboard(data.leaderboard || []);
     } catch (err) {
       setErrorMessage(err.message || "Failed to load leaderboard");

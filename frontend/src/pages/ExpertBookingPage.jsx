@@ -25,6 +25,7 @@
  */
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
+import { apiRequest } from "../services/api/client.js";
 
 const ExpertBookingPage = () => {
   const { user, token } = useAuth();
@@ -66,21 +67,12 @@ const ExpertBookingPage = () => {
     setSuccessMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/expert-booking", {
+      await apiRequest("/expert-booking", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
+        token,
+        body: formData,
       });
 
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || "Failed to create booking");
-      }
-
-      const data = await response.json();
       setSuccessMessage("✓ Booking request submitted! Expert will confirm soon.");
       setFormData({
         name: user?.name || "",

@@ -14,7 +14,8 @@
  * - browser fetch API for network requests
  * - Vite environment variables for API base URL
  */
-const API_URL = import.meta.env.VITE_API_URL || "/api";
+const DEFAULT_API_URL = "https://miniprog.onrender.com/api";
+const API_URL = import.meta.env.VITE_API_URL || (typeof window !== "undefined" && window.location.hostname === "localhost" ? "/api" : DEFAULT_API_URL);
 
 export const apiRequest = async (path, { method = "GET", token, body } = {}) => {
   const response = await fetch(`${API_URL}${path}`, {

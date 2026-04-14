@@ -35,6 +35,10 @@ const app = express();
 app.use(cors({ origin: [process.env.CLIENT_URL, "http://localhost:5173", "http://localhost:5174"] }));
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.json({ status: "Backend running", message: "Use /api/health or other /api routes." });
+});
+
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
 // Public GETs for landing; POST remains protected inside route file
